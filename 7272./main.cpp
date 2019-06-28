@@ -27,21 +27,17 @@ int judge(char c) {
 }
 
 bool check(const char *a, const char *b) {
-    int ahash = 0, bhash = 0,i,j;
-    
+    int ahash = 1, bhash = 1,i,j;
     for (i = 0; a[i] != 0; i++) {
+        ahash <<= 2;
         ahash += judge(a[i]);
-        ahash <<= 3;
+        
     }
     for (j = 0; b[j] != 0; j++) {
+        bhash <<= 2;
         bhash += judge(b[j]);
-        bhash <<= 3;
     }
-    
-    if (j != i) {
-        return false;
-    }
-    return ahash == bhash ? true : false;
+    return ahash == bhash;
 }
 
 int main(int argc, const char * argv[]) {
@@ -51,7 +47,6 @@ int main(int argc, const char * argv[]) {
     
     const char ANS[2][5] = {"DIFF", "SAME"};
     short T;
-    
     cin >> T;
     
     for (int z = 1; z <= T; z++) {
@@ -59,7 +54,6 @@ int main(int argc, const char * argv[]) {
         cin >> a >> b;
         cout << "#" << z <<" " << ANS[check(a,b)] << "\n";
     }
-    
     
     return 0;
 }
