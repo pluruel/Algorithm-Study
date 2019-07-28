@@ -12,6 +12,9 @@ int test(int N) {
         bool judge = false;
         int temp = t;
         int a = 0;
+        if(!t) {
+            a++;
+        }
         while (temp) {
             temp /= 10;
             a++;
