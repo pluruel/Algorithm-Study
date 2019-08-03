@@ -82,17 +82,6 @@ void findNewCell(int time, cell* c) {
     }
 }
 
-void print() {
-    cout << "\n";
-    for (int i = 300; i < 330; ++i) {
-        for (int j = 300; j < 330; ++j) {
-            cout << map[i][j] << " ";
-        }
-        cout << "\n";
-    }
-    cout << "\n";
-}
-
 void takeHour() {
     int time1 = !(runningTime%2);
     int time2 = runningTime%2;
