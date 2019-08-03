@@ -9,8 +9,8 @@ void swap(int& a, int& b) {
 void quickSort(int start, int end, int* arr) {
     int i = start, j = end, pivot = arr[(i+j)/2];
     while(i <= j) {
-        while(arr[i] > pivot) i++;
-        while(arr[j] < pivot) j--;
+        while(arr[i] < pivot) i++;
+        while(arr[j] > pivot) j--;
         if(i <= j) {
             swap(arr[i++], arr[j--]);
         }
