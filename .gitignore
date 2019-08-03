@@ -6,8 +6,8 @@
 *.lo
 *.o
 *.obj
-.vscode/
-
+main
+main.dSYM
 # Precompiled Headers
 *.gch
 *.pch
@@ -26,6 +26,7 @@
 *.la
 *.a
 *.lib
+*.
 
 # Executables
 *.exe
