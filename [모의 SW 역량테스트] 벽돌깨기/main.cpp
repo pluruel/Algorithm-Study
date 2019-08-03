@@ -1,6 +1,7 @@
 #include <iostream>
 #include <queue>
 
+// 5시간정도
 using namespace std;
 
 int N, W, H;
@@ -145,7 +146,6 @@ int main(int argc, const char * argv[]) {
     int board[15][12] = {0,};
     int target[12] = {0};
     
-
     short T;
     cin >> T;
     
