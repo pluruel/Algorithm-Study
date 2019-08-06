@@ -4,7 +4,6 @@ using namespace std;
 
 int map[20][20];
 int dice[7] = {0,0,0,0,0,0,0};
-// int dice[7] = {0,1,2,3,4,5,6};
 int movens[6] = {2, 1, 5, 6, 2, 1};
 int movewe[6] = {4, 1, 3, 6, 4, 1};
 int mc[5] = {0, 0, 0, -1, 1};
@@ -16,8 +15,6 @@ int north() {
     int temp[4];
     for(int i = 0; i < 4; ++i)  temp[i] = dice[movens[i+2]];
     for(int i = 0; i < 4; ++i) dice[movens[i+1]] = temp[i];
-    if(map[y][x] != 0)
-        dice[6] = map[y][x];
     return dice[1];
 }
 
@@ -25,8 +22,6 @@ int south() {
     int temp[4];
     for(int i = 0; i < 4; ++i)  temp[i] = dice[movens[i+1]];
     for(int i = 0; i < 4; ++i) dice[movens[i+2]] = temp[i];
-    if(map[y][x] != 0)
-        dice[6] = map[y][x];
     return dice[1];
 }
 
@@ -34,8 +29,7 @@ int west() {
     int temp[4];
     for(int i = 0; i < 4; ++i)  temp[i] = dice[movewe[i+2]];
     for(int i = 0; i < 4; ++i) dice[movewe[i+1]] = temp[i];
-    if(map[y][x] != 0)
-        dice[6] = map[y][x];
+
     return dice[1];
 }
 
@@ -43,14 +37,12 @@ int east() {
     int temp[4];
     for(int i = 0; i < 4; ++i)  temp[i] = dice[movewe[i+1]];
     for(int i = 0; i < 4; ++i) dice[movewe[i+2]] = temp[i];
-    if(map[y][x] != 0)
-        dice[6] = map[y][x];
     return dice[1];
 }
 
 void move(int way) {
-      x += mr[way]; y += mc[way];
-    if(x >= N || y >= N || x < 0 || y < 0) {
+    x += mr[way]; y += mc[way];
+    if(x >= M || y >= N || x < 0 || y < 0) {
         x -= mr[way]; y -= mc[way];
         return;
     }
@@ -69,7 +61,13 @@ void move(int way) {
             cout << south() << "\n";
             break;
     }
-    map[y][x] = 0;
+    if(map[y][x] != 0){
+        dice[6] = map[y][x];
+        map[y][x] = 0;
+    }
+    else {
+        map[y][x] = dice[6];
+    }
 }
 
 int main() {
@@ -77,7 +75,7 @@ int main() {
     
     
 
-    cin >> N >> M >> x >> y >> K;
+    cin >> N >> M >> y >> x >> K;
 
     for (int i = 0; i < N; ++i) {
         for (int j = 0; j < M; ++j) {
@@ -85,8 +83,6 @@ int main() {
         }
     }
     int way;    
-
-    // east();
 
     for (int i = 0; i < K; ++i) {
         cin >> way;
