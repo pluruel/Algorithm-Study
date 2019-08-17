@@ -2,6 +2,17 @@
     "files.associations": {
         "iostream": "cpp",
         "charconv": "cpp",
-        "queue": "cpp"
+        "queue": "cpp",
+        "ios": "cpp",
+        "algorithm": "cpp",
+        "set": "cpp",
+        "vector": "cpp",
+        "deque": "cpp",
+        "stack": "cpp",
+        "__config": "cpp",
+        "functional": "cpp",
+        "__functional_base": "cpp",
+        "iterator": "cpp",
+        "utility": "cpp"
     }
 }
