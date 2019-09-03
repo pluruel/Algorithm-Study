@@ -13,6 +13,8 @@
         "functional": "cpp",
         "__functional_base": "cpp",
         "iterator": "cpp",
-        "utility": "cpp"
+        "utility": "cpp",
+        "map": "cpp",
+        "iosfwd": "cpp"
     }
 }
