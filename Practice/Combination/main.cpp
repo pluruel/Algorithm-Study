@@ -53,17 +53,7 @@ void print(int* arr) {
     no++;
 }
 
-void per(int* arr, int depth){
-    if(depth == 3) {
-        print(arr);
-        return;
-    }
-    for (int i = depth; i < 3; ++i) {
-        swap(arr[i], arr[depth]);
-        per(arr, depth + 1);
-        swap(arr[i], arr[depth]);
-    }
-}
+
 
 int temp[3];
 
@@ -83,7 +73,7 @@ int main() {
     ios_base::sync_with_stdio(false) ;  cin.tie(NULL); cout.tie(NULL);
     int arr[9] = { 1, 2, 3, 4, 5, 6, 7, 8, 9 } ;
     // (arr, 0);
-    com(arr,0, 0);
+    // com(arr,0, 0);
 
     // vector<noee> v;
     // v.push_back(noee(1,2));
