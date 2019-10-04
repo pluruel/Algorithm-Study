@@ -9,7 +9,7 @@ class trie {
 public:
     char c;
     map<char, trie> nexts;
-    trie(char _c) : c(_c){}
+    trie(char _c) : c(_c){} 
     
 };
 
