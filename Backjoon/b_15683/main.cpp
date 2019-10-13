@@ -26,13 +26,13 @@ int N, M, m[8][8];
 
 cam *cams[8];
 int ac = 0;
-int ans = INT_MAX;
+int cnt = 0, ans = INT_MAX;
 
 int pos[8];
 
 int test() {
-    int tm[8][8] = {0,};
-    int voids = 0;
+    int tm[8][8];
+    int poss = 0;
     for (int i = 0; i < N; ++i) {
         for (int j = 0; j < M; ++j) {
             tm[i][j] = m[i][j];
@@ -45,19 +45,17 @@ int test() {
             if(sc[cams[i]->s][temp]) {
                 int ty = cams[i]->y + wy[j], tx = cams[i]->x + wx[j];
                 while((INSIDE) && tm[ty][tx] != 6) {
-                    if(!tm[ty][tx])
+                    if(!tm[ty][tx]){
                         tm[ty][tx] = 7;
+                        poss++;
+                    }
                     ty += wy[j]; tx += wx[j];
                 }
             } 
         }
     }
-    for (int i = 0; i < N; ++i) {
-        for (int j = 0; j < M; ++j) {
-            if(!tm[i][j]) voids++;
-        }
-    }
-    return voids;
+    
+    return cnt - poss;
 }
 
 void turncams(int depth) {
@@ -76,7 +74,8 @@ int main() {
     for(int i = 0; i < N; ++i) {
         for (int j = 0; j < M; ++j) {
             cin >> m[i][j];
-            if(m[i][j] > 0 && m[i][j] < 6) {
+            if (m[i][j] == 0) cnt++;
+            else if(m[i][j] > 0 && m[i][j] < 6) {
                 cams[ac++] = new cam(i, j , m[i][j]);
             }
         }
