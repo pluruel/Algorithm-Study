@@ -6,8 +6,8 @@
             "command": "clang++",
             "args": [
                 "-o",
-                "${fileBasenameNoExtension}", // executable
-                "${file}", // main file
+                "${fileBasenameNoExtension}",
+                "${file}",
                 "-g",
                 "-v",
                 "-std=c++14"
